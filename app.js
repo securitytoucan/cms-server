@@ -20,6 +20,7 @@ app.use(passport.initialize());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
+app.set("view engine", "ejs")
 
 // require database
 require('./config/database')
@@ -35,6 +36,6 @@ app.use(adminRoutes);
 // })
 app.listen(process.env.PORT, process.env.IP, ()=> {
     app.get("/", (req,res) => {
-        res.render("landing.ejs")
+        res.render("landing")
     });
 })
